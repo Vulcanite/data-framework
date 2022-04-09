@@ -19,7 +19,7 @@ form_config = {
 
 #WEBPAGE REQUEST FUNCTIONS
 def login(request):
-    return render(request, "home.html")
+    return render(request, "login.html")
 
 def listpage(request):
     return render(request, "list.html")

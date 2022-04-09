@@ -1,4 +1,4 @@
-var Data = function(){
+var Handler = function(){
     return {
         load : function(url, data){
             $.ajax({
@@ -46,6 +46,7 @@ var Data = function(){
             }            
         },
         showError: function(source, message) {
+            console.log("haebfkhabsfkjbfj")
             var container = $(source).closest(".fieldError");
             $(container).find(".comment").remove();
             $(container).append($('<span class="comment text-danger font-small-2">' + message + '</span>'));
@@ -53,4 +54,4 @@ var Data = function(){
         },
 
     }
-}
+}();

@@ -83,6 +83,7 @@ var Validations = function(){
             }
         },
         notEmpty : function(element){
+            console.log("holalamsfaif");
             var data = readDataFromElement(element, false);
             for (var i = 0; i < data.length; i++) {
                 if (data[i].length == 0) {
@@ -167,4 +168,4 @@ var Validations = function(){
             }
         }
     }
-}
+}();

@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,8 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-<link rel="stylesheet" href="stylelogin.css">
-<script src="loginform.js"></script>
+<link rel="stylesheet" href="{% static 'testframework/css/stylelogin.css' %} ">
 <title>Mumbai Hackathon</title>
   </head>
   <body>
@@ -15,14 +15,14 @@
         <div class="form login">
           <span class="title">Login</span>
     
-          <form action="#">
+          <form id="loginForm" action="#">
             <div class="input-field">
-              <input type="text" placeholder="Enter your email" required>
+              <input id="loginid" type="text" placeholder="Enter your email">
               <i class="uil uil-envelope"></i>
             </div>
     
             <div class="input-field">
-              <input type="password" class="password" placeholder="Enter your password" required>
+              <input id="passwd" type="password" class="password" placeholder="Enter your password">
               <i class="uil uil-lock icon"></i>
               <i class="uil uil-eye-slash showHidePw"></i>
             </div>
@@ -35,61 +35,15 @@
     
               <a href="#" class="text">Forgot password?</a>
             </div>
-    
-            <div class="input-field button">
-              <input type="button" value="Login Now">
-            </div>
+
+            <button onclick="javascript:Login.checkValue();" class="btn btn-sm btn-primary btn-block">Submit</button>
+
           </form>
-    
-          <div class="login-signup">
-            <span class="text">Not a member?
-              <a href="form.html" class="text signup-link" >Signup now</a>
-            </span>
-          </div>
-        </div>
-    
-        <div class="form signup">
-          <span class="title">Registration</span>
-    
-          <form action="#">
-            <div class="input-field">
-              <input type="text" placeholder="Enter your name" required>
-              <i class="uil uil-user"></i>
-            </div>
-            <div class="input-field">
-              <input type="text" placeholder="Enter your email" required>
-              <i class="uil uil-envelope"></i>
-            </div>
-    
-            <div class="input-field">
-              <input type="password" placeholder="Create a password" required>
-              <i class="uil uil-lock icon"></i>
-            </div>
-            <div class="input-field">
-              <input type="password" class="password" placeholder="Confirm a password" required>
-              <i class="uil uil-lock icon"></i>
-              <i class="uil uil-eye-slash showHidePw"></i>
-            </div>
-    
-            <div class="checkbox-text">
-              <div class="checkbox-content">
-                <input type="checkbox" id="signCheck">
-                <label for="signCheck" class="text">I accept all terms & conditions</label>
-              </div>
-            </div>
-    
-            <div class="input-field button">
-              <input type="button" value="Register Now">
-            </div>
-          </form>
-    
-          <div class="login-signup">
-            <span class="text">Already have an account?
-              <a href="#" class="text login-link">Login now</a>
-            </span>
-          </div>
         </div>
       </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+    <script src="{% static 'testframework/js/login.js' %}"></script>
+    <script src="{% static 'testframework/js/handling.js' %}"></script>
 </body>
 </html>
