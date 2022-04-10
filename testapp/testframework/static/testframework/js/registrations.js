@@ -1,11 +1,11 @@
 var Registration = function () {
     return {
         init : function(){
-            var data = Handler.load('getdata');
+            var data = Handler.load_data('getdata');
             console.log(data);
             Handler.loadDropdown("projects");
             Handler.loadCheckbox("checkboxes");
-            Handler.loadRadioButtons("radio");
+            Handler.loadRadioButtons("radiobuttons");
         },
         addStudent : function(){
             list = ["gmail.com", "outlook.com"]
@@ -26,5 +26,5 @@ var Registration = function () {
 }();
 
 jQuery(document).ready(function () {
-    Registration.init()
+    Registration.init();
 });

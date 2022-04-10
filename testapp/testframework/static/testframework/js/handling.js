@@ -1,6 +1,6 @@
 var Handler = function(){
     return {
-        load : function(url){
+        load_data : function(url){
             $.ajax({
                 type: 'GET',
                 url: url,
@@ -31,11 +31,11 @@ var Handler = function(){
             });
 
         },
-        loadDropdown: function(element, projects){
+        loadDropdown: function(element, data){
             var renderedList= '';
-            projects = ["Password Cracker", "Lock System", "Facial Recognition"];
-            for(let data in projects){
-                renderedList += '<option value="'+projects[data]+'">'+ projects[data] +'</option>';
+            data = ["Password Cracker", "Lock System", "Facial Recognition"];
+            for(let value in data){
+                renderedList += '<option value="'+data[value]+'">'+ data[value] +'</option>';
             }
             $("#" + element).html("");
             $("#" + element).html(renderedList);
@@ -54,11 +54,11 @@ var Handler = function(){
                 setTimeout(function(){ $("#notification .alert-" + type).hide(); }, timeout);
             }
         },
-        loadCheckbox: function(element, domain){
+        loadCheckbox: function(element, data){
             var checkoptions = '';
             domain = ["ML", "DataScience", "AI", "Web Developement"]
-            for(let value in domain){
-                checkoptions += '<label><input name="domain" value="'+domain[value]+'" type="checkbox" class="input-checkbox" />'+domain[value]+'</label>'
+            for(let value in data){
+                checkoptions += '<label><input name="domain" value="'+data[value]+'" type="checkbox" class="input-checkbox" />'+data[value]+'</label>'
             }
             $("#" + element).html("");
             $("#" + element).html(checkoptions);
@@ -76,19 +76,17 @@ var Handler = function(){
             }
             return list;
         },
-        getRadioValue:function(name, allowEmpty){
+        getRadioValue:function(name){
             var data = $('input[name='+name+']:checked').val();
             return data;
         },
-        loadRadioButtons : function(element, domain){
+        loadRadioButtons : function(element, data){
             var radioOptions = '';
-            domain = ["Comps", "IT", "EXTC", "Mechanical"]
-            for(let value in domain){
-                radioOptions += '<label class="radio-label"><input type="radio" name="courses" class="input-radio"value="'+domain[value]+'">'+domain[value]+'</label>'
+            for(let value in data){
+                radioOptions += '<label class="radio-label"><input type="radio" name="courses" class="input-radio"value="'+data[value]+'">'+data[value]+'</label>'
             }
             $("#" + element).html("");
             $("#" + element).html(radioOptions);
-
         }
     }
 }();

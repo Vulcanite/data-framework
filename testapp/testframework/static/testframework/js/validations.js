@@ -28,7 +28,6 @@ var Validations = function(){
                 message : "Cannot be empty"
             }
         }
-
         return data;
     }
 
