@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
+    <!-- meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -26,89 +26,63 @@
       <main>
         <br>
         <div class="cen">
-        <h1 style="color: white; font-weight: bold;">Welcome to Mumbai Hackathon</h1>
+        <h1 style="color: white; font-weight: bold; text-align: center;">Welcome to Mumbai Hackathon</h1>
         <hr size="3" noshade>
         <div class="container">
-          <header class="header">
-            <h1 id="title">STUDENT REGISTRATION FORM</h1>
-            <p id="note">
-              Fill the following form and Register yourself for The Mumbai Hackathon!
-            </p>
-          </header>
-          <form id="adoption-form">
+          <br>
+          <br>
+          <form id="reg">
             <!-- FName -->
-            <div class="form-item">
+            <div class="form-item errorTag">
               <label for="name" id="label-two" class="label-item">First Name<span class="requred">*</span>:</label>
-              <input type="text" required name="name" class="form-control" placeholder="Enter your First name">
+              <input id="fname" name="name" class="form-control" placeholder="Enter your First name">
             </div>
              <!-- LName -->
-             <div class="form-item">
+             <div class="form-item errorTag">
                 <label for="name" id="label-two" class="label-item">Last Name<span class="requred">*</span>:</label>
-                <input type="text" required name="name" class="form-control" placeholder="Enter your Last name">
+                <input type="text" id="lname" ame="name" class="form-control" placeholder="Enter your Last name">
               </div>
             <!-- Email -->
-            <div class="form-item">
+            <div class="form-item errorTag">
               <label for="email" id="label-three" class="label-item">E-mail<span class="requred">*</span>:</label>
-              <input type="email" required name="email" class="form-control" placeholder="Enter your e-mail">
+              <input id="emailAddress" name="email" class="form-control" placeholder="Enter your e-mail">
             </div>
+
+            <div class="form-item errorTag">
+              <label for="username" id="label-three" class="label-item">Username<span class="requred">*</span>:</label>
+              <input id="username" name="email" class="form-control" placeholder="Enter your username">
+            </div>
+
             <!-- Address -->
             <div class="form-item">
               <p class="label-item">Address* <span class="clue">(city, street, bld., apt.)</span></p>
-              <textarea id="address" required name="address" class="input-textarea"
+              <textarea id="address" name="address" class="input-textarea"
                 placeholder="Enter your address here"></textarea>
             </div>
             <!-- Pin code -->
             <div class="form-item">
                 <p class="label-item">Pin code* </p>
-                <input type="text" required name="pincode" class="form-control" placeholder="Enter your Pin code">
-              </div>
-            <!-- Phone -->
-            <div class="form-item">
-              <label for="phone" id="label-five" class="label-item">Mobile phone*</label>
-              <input type="tel" name="phone" id="phone" class="form-control" pattern="[0-9]{1}-[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                placeholder="Format: 7-916-123-4578">
-            </div>
-            <!--DOB-->
-            <div class="form-item">
-                <label for="date" id="label-five" class="label-item">DATE OF BIRTH*</label>
-                <input type="text" required name="dob" class="form-control" placeholder="DD-MM-YYYY">
-            </div>
+                <input type="text" name="pincode" class="form-control" placeholder="Enter your Pin code">
+             </div>
             <!-- Age -->
             <div class="form-item">
               <label for="age" id="laberl-six" class="label-item">Age*</label>
-              <input type="text" name="age" class="form-control" placeholder="Enter your age">
+              <input type="text" id="age" name="age" class="form-control" placeholder="Enter your age">
             </div>
             
-            <!-- Gender -->
-            <div class="form-item">
-              <p class="label-item">Gender:</p>
-              <label class="radio-label"><input type="radio" name="household-type" class="input-radio"
-                  value="male">Male</label>
-              <label class="radio-label"><input type="radio" name="household-type" class="input-radio"
-                  value="female">Female</label>
-              <label class="radio-label"><input type="radio" name="household-type" class="input-radio"
-                  value="non">Prefer not to say</label>
-            </div>
             <!--Passwords-->
-            <div class="form-item">
+            <div class="form-item errorTag">
                 <label for="password" id="laberl-six" class="label-item">Create Password*</label>
-                <input type="password" class="form-control" placeholder="Create Password" id="password" required>
+                <input type="password" class="form-control" placeholder="Create Password" id="passwd">
             </div>
-            <div class="form-item">
+            <div class="form-item errorTag">
                 <label for="password" id="laberl-six" class="label-item">Confirm Password*</label>
-                <input type="password" class="form-control" placeholder="Confirm Password" id="password" required>
+                <input type="password" class="form-control" placeholder="Confirm Password" id="cnfpasswd">
             </div>
             <!-- Department -->
-            <div class="form-item">
+            <div class="form-item errorTag">
                 <p class="label-item">Select your Department:*</p>
-                <label class="radio-label"><input type="radio" name="courses" class="input-radio"
-                    value="Computer">Computer</label>
-                <label class="radio-label"><input type="radio" name="courses" class="input-radio"
-                    value="IT">IT</label>
-                <label class="radio-label"><input type="radio" name="courses" class="input-radio"
-                    value="EXTC">EXTC</label>
-                    <label class="radio-label"><input type="radio" name="courses" class="input-radio"
-                        value="Mechanical">Mechanical</label>
+                <div id="radiobuttons"></div>
             </div>
             <!-- Domain-->
             <div class="form-item">
@@ -116,20 +90,12 @@
                   Domain
                   <span class="clue">(Check all that apply)</span>
                 </p>
-                <label><input name="domain" value="Machine Learning" type="checkbox" class="input-checkbox" />Machine Learning</label>
-                <label><input name="domain" value="Data Science" type="checkbox" class="input-checkbox" />Data Science</label>
-                <label><input name="domain" value="AI" type="checkbox" class="input-checkbox" />AI</label>
-                <label><input name="domain" value="Web Development" type="checkbox" class="input-checkbox" />Web Development</label>
-                <label><input name="domain" value="other" type="checkbox" class="input-checkbox" />Other</label>
+                <div id="checkboxes" class="errorTag"></div>
               </div>
             <!-- Project -->
             <div class="form-item">
                 <label for="project" id="label-seven" class="label-item">Select a Project:</label>
-                <select name="project" id="project" class="form-control">
-                  <option disabled selected value>Select a project:</option>
-                  <option value="p1">Weather forecasting of Mumbai</option>
-                  <option value="p2">Passport Registration Portal</option>
-                </select>
+                <select name="project" id="projects" class="form-control"></select>
               </div>
              
             
@@ -137,10 +103,13 @@
             <div id="submit-explain">
               <p>By submitting the form, I acknowledge that I have provided the correct information and if any information is found to be false I accept the resposibility completely.</p>
             </div class="form-group">
-            <button type="submit" id="submit" class="submit-button">Submit</button>
+            <button type="button" onclick="javascript:Registration.addStudent();" class="btn btn-sm btn-primary btn-block">Add Student</button>
           </form>
-        </div>
     </div>
     </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+    <script src="{% static 'testframework/js/handling.js' %}"></script>
+    <script src="{% static 'testframework/js/validations.js' %}"></script>
+    <script src="{% static 'testframework/js/registrations.js' %}"></script>
     </body>
     </html>

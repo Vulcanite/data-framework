@@ -2,7 +2,8 @@ var Validations = function(){
     var EMAIL_PATTERN = /^\w+([\+\.\-]\w+)*@\w+([\-\.]\w+){0,2}(\.[a-zA-Z]{2,4})+$/;
     var PASSWORD_PATTERN = /^[A-Za-z0-9\@\#\$\%\!\-]+$/;
     var INTEGER_PATTERN = /^(([0-9]*)|([0-9]))$/;
-    var ALPHANUMERIC_PATTERN = /^[a-z0-9]+$/i;
+    var ALPHANUMERIC_PATTERN =/^(?=.*[a-zA-Z])(?=.*[0-9])[A-Za-z0-9]+$/;
+    var NAME_PATTERN = /^[A-Za-z]+$/;
 
     var readDataFromElement = function(element, allowEmpty) {
         var data = [];
@@ -184,6 +185,20 @@ var Validations = function(){
                     }
                 }
             }
+        },
+        passwordNotMatch : function(element, cnfelement, allowEmpty) {
+            var data = readDataFromElement(element);
+            var data1 = readDataFromElement(cnfelement);
+            if (data[0] == data1[0]) {
+                throw {
+                    source : element,
+                    message : "Passwords do not match!!"
+                }
+            }
+        },
+        name : function(element, allowEmpty){
+            var data = readDataFromElement(element, allowEmpty);
+            validate(element, NAME_PATTERN, allowEmpty, "Invalid Name");
         }
     }
 }();

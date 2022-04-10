@@ -5,9 +5,9 @@ from django.shortcuts import render
 
 domains = ['AI', 'Cybsecurity', 'MATH']
 blacklist = ["hotmail", "gmail", "outlook"]
-dropdown = []
-checkbox = []
-radio = []
+dropdown = ["Password Cracker", "Lock System", "Facial Recognition"]
+checkbox = ["ML", "DataScience", "AI", "Web Developement"]
+radio = ["Comps", "IT", "EXTC", "Mechanical"]
 
 form_config = {
     'domains' : domains,
@@ -33,8 +33,7 @@ def home(request):
 
 #API DATA FUNCTIONS
 def receive_data(request):
-    data = {"logs":"value"}
-    return JsonResponse(data)
+    return JsonResponse(form_config)
 
 
 def send_data(request):

@@ -94,9 +94,23 @@ body {
   .icon-menu {
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAABHNCSVQICAgIfAhkiAAAAB5JREFUKJFj/P///38GEgATKYoHKWAc9TQRgGRPAwD0IAv+FT8LPwAAAABJRU5ErkJggg==');
   }
-  h2, hr{
-      color: white;
-  }
-  .cen{
-    margin-left: 20px;
+  h2, hr,h3,h6{
+    color: white;
+}
+h1{
+    color: white;
+    font-size: 70px;
+}
+.cen{
+  padding-left: 20%;
+}
+.headings {
+  padding-left:25%;
+  font-size: 1px;
+  
+}
+footer.h6{
+  position:absolute;
+  bottom:5px;
+  padding-left:25%;
 }
