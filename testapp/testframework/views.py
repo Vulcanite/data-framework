@@ -12,8 +12,8 @@ radio = []
 form_config = {
     'domains' : domains,
     'blacklist': blacklist,
-    'dropoptions': dropdown,
-    'radio-options': radio,
+    'dropdown': dropdown,
+    'radio': radio,
     'checkbox' : checkbox
 }
 
@@ -28,7 +28,7 @@ def registration(request):
     return render(request, "registration.html")
 
 def home(request):
-    return render(request, "home.html")
+    return render(request, "home.html", {"logs": form_config})
 
 
 #API DATA FUNCTIONS

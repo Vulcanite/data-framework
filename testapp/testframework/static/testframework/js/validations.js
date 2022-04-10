@@ -83,7 +83,6 @@ var Validations = function(){
             }
         },
         notEmpty : function(element){
-            console.log("holalamsfaif");
             var data = readDataFromElement(element, false);
             for (var i = 0; i < data.length; i++) {
                 if (data[i].length == 0) {
@@ -115,8 +114,8 @@ var Validations = function(){
                 }
             }
         },
-        password : function(element, maxlength){
-            lengthInRange(element, 8, maxlength, allowEmpty);
+        password : function(element, maxlength, allowEmpty){
+            Validations.lengthInRange(element, 8, maxlength, allowEmpty);
             var data = readDataFromElement(element, allowEmpty);
             for (var i = 0; i < data.length; i++) {
                 if (data[i] === data[i].toLowerCase()) {
@@ -157,14 +156,33 @@ var Validations = function(){
                 validate(element, PASSWORD_PATTERN, allowEmpty,"Invalid Password Provided");
             }
         },
-        alphanumeric : function(element, message){
-            validate(element, PASSWORD_PATTERN, allowEmpty, message);
+        alphanumeric : function(element, allowEmpty, message){
+            validate(element, ALPHANUMERIC_PATTERN, allowEmpty, message);
         },
-        excludedEmailHosts : function(element, list, message){
+        excludedEmailHosts : function(element, list, allowEmpty){
             var data = readDataFromElement(element, allowEmpty);
-            var elementData = data[i].split('@');
+            var elementData = data[0].split('@');
             if (list.includes(elementData[1]) == true){
-                return message;
+                console.log("error");
+                throw{
+                    source: element,
+                    message: "This Email Host is not allowed",
+                } 
+            }
+        },
+        email: function(element, list, allowEmpty, message){
+            Validations.excludedEmailHosts(element, list, allowEmpty);
+            validate(element, EMAIL_PATTERN, allowEmpty, message);
+        },
+        notInList : function(element, list, allowEmpty) {
+            var data = readDataFromElement(element, allowEmpty);
+            for (var i = 0; i < data.length; i++) {
+                if (list.indexOf(data[i]) != -1) {
+                    throw {
+                        source : element,
+                        message : "Already exists"
+                    }
+                }
             }
         }
     }
