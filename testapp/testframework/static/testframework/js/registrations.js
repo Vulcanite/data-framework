@@ -3,22 +3,23 @@ var Registration = function () {
         init : function(){
             var data = Handler.load_data('getdata');
             console.log(data);
-            Handler.loadDropdown("projects");
-            Handler.loadCheckbox("checkboxes");
-            Handler.loadRadioButtons("radiobuttons");
+            Handler.loadDropdown("projects", ["AI", "Cybersecurity", "DataScience"]);
+            Handler.loadCheckbox("checkboxes", ["AI", "Cybersecurity", "DataScience"]);
+            Handler.loadRadioButtons("radiobuttons", ["AI", "Cybersecurity", "DataScience"]);
         },
         addStudent : function(){
             list = ["gmail.com", "outlook.com"]
             try{
-                Handler.getCheckboxesValue("domain", false);
+                var data = Handler.getCheckboxesValue("domain", false);
+                console.log(data)
                 Validations.customValidation($("#username"), /^(?=.*[a-zA-Z])(?=.*[0-9])[A-Za-z0-9]+$/, false, "Should be Alphanumeric Pattern");
                 Validations.name($("#fname"), false);
-                Validations.name($("#lname"), false);
-                Validations.email($("#emailAddress"), list, true, "Invalid EMAIL ID");
+                Validations.email($("#emailAddress"), list, false, "Invalid EMAIL ID");
                 Validations.password($("#passwd"), 12, false, "");
-                Validations.passwordNotMatch($("passwd"), $("cnfpasswd"));
+                //Validations.passwordNotMatch($("#passwd"), $("#cnfpasswd"));
+                Validations.numberInRange($("#age"), 18, 72, false);
             }catch(e){
-                console.log(e.source);
+                console.log(e.message);
                 Handler.showInputError(e.source, e.message);
             }
         }

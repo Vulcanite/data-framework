@@ -69,7 +69,6 @@ var Validations = function(){
                         message : message
                     }
                 }
-
                 if (end != null && Number(end) < Number(data[i])) {
                     if (message === null || message === undefined) {
                         message = "Input value should be less than or equal to " + end;

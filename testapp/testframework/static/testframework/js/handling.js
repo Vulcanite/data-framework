@@ -1,5 +1,6 @@
 var Handler = function(){
     return {
+         //WORK IN PROGRESS
         load_data : function(url){
             $.ajax({
                 type: 'GET',

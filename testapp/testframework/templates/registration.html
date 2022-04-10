@@ -51,20 +51,8 @@
               <label for="username" id="label-three" class="label-item">Username<span class="requred">*</span>:</label>
               <input id="username" name="email" class="form-control" placeholder="Enter your username">
             </div>
-
-            <!-- Address -->
-            <div class="form-item">
-              <p class="label-item">Address* <span class="clue">(city, street, bld., apt.)</span></p>
-              <textarea id="address" name="address" class="input-textarea"
-                placeholder="Enter your address here"></textarea>
-            </div>
-            <!-- Pin code -->
-            <div class="form-item">
-                <p class="label-item">Pin code* </p>
-                <input type="text" name="pincode" class="form-control" placeholder="Enter your Pin code">
-             </div>
             <!-- Age -->
-            <div class="form-item">
+            <div class="form-item errorTag">
               <label for="age" id="laberl-six" class="label-item">Age*</label>
               <input type="text" id="age" name="age" class="form-control" placeholder="Enter your age">
             </div>
@@ -77,11 +65,6 @@
             <div class="form-item errorTag">
                 <label for="password" id="laberl-six" class="label-item">Confirm Password*</label>
                 <input type="password" class="form-control" placeholder="Confirm Password" id="cnfpasswd">
-            </div>
-            <!-- Department -->
-            <div class="form-item errorTag">
-                <p class="label-item">Select your Department:*</p>
-                <div id="radiobuttons"></div>
             </div>
             <!-- Domain-->
             <div class="form-item">
@@ -96,12 +79,7 @@
                 <label for="project" id="label-seven" class="label-item">Select a Project:</label>
                 <select name="project" id="projects" class="form-control"></select>
               </div>
-             
-            
             <!-- button -->
-            <div id="submit-explain">
-              <p>By submitting the form, I acknowledge that I have provided the correct information and if any information is found to be false I accept the resposibility completely.</p>
-            </div class="form-group">
             <button type="button" onclick="javascript:Registration.addStudent();" class="btn btn-sm btn-primary btn-block">Add Student</button>
           </form>
     </div>
