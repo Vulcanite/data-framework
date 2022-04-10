@@ -2,7 +2,8 @@ var Validations = function(){
     var EMAIL_PATTERN = /^\w+([\+\.\-]\w+)*@\w+([\-\.]\w+){0,2}(\.[a-zA-Z]{2,4})+$/;
     var PASSWORD_PATTERN = /^[A-Za-z0-9\@\#\$\%\!\-]+$/;
     var INTEGER_PATTERN = /^(([0-9]*)|([0-9]))$/;
-    var ALPHANUMERIC_PATTERN = /^[a-z0-9]+$/i;
+    var ALPHANUMERIC_PATTERN =/^(?=.*[a-zA-Z])(?=.*[0-9])[A-Za-z0-9]+$/;
+    var NAME_PATTERN = /^[A-Za-z]+$/;
 
     var readDataFromElement = function(element, allowEmpty) {
         var data = [];
@@ -27,7 +28,6 @@ var Validations = function(){
                 message : "Cannot be empty"
             }
         }
-
         return data;
     }
 
@@ -114,8 +114,8 @@ var Validations = function(){
                 }
             }
         },
-        password : function(element, maxlength){
-            lengthInRange(element, 8, maxlength, allowEmpty);
+        password : function(element, maxlength, allowEmpty){
+            Validations.lengthInRange(element, 8, maxlength, allowEmpty);
             var data = readDataFromElement(element, allowEmpty);
             for (var i = 0; i < data.length; i++) {
                 if (data[i] === data[i].toLowerCase()) {
@@ -156,15 +156,48 @@ var Validations = function(){
                 validate(element, PASSWORD_PATTERN, allowEmpty,"Invalid Password Provided");
             }
         },
-        alphanumeric : function(element, message){
-            validate(element, PASSWORD_PATTERN, allowEmpty, message);
+        alphanumeric : function(element, allowEmpty, message){
+            validate(element, ALPHANUMERIC_PATTERN, allowEmpty, message);
         },
-        excludedEmailHosts : function(element, list, message){
+        excludedEmailHosts : function(element, list, allowEmpty){
             var data = readDataFromElement(element, allowEmpty);
-            var elementData = data[i].split('@');
+            var elementData = data[0].split('@');
             if (list.includes(elementData[1]) == true){
-                return message;
+                console.log("error");
+                throw{
+                    source: element,
+                    message: "This Email Host is not allowed",
+                } 
             }
+        },
+        email: function(element, list, allowEmpty, message){
+            Validations.excludedEmailHosts(element, list, allowEmpty);
+            validate(element, EMAIL_PATTERN, allowEmpty, message);
+        },
+        notInList : function(element, list, allowEmpty) {
+            var data = readDataFromElement(element, allowEmpty);
+            for (var i = 0; i < data.length; i++) {
+                if (list.indexOf(data[i]) != -1) {
+                    throw {
+                        source : element,
+                        message : "Already exists"
+                    }
+                }
+            }
+        },
+        passwordNotMatch : function(element, cnfelement, allowEmpty) {
+            var data = readDataFromElement(element);
+            var data1 = readDataFromElement(cnfelement);
+            if (data[0] == data1[0]) {
+                throw {
+                    source : element,
+                    message : "Passwords do not match!!"
+                }
+            }
+        },
+        name : function(element, allowEmpty){
+            var data = readDataFromElement(element, allowEmpty);
+            validate(element, NAME_PATTERN, allowEmpty, "Invalid Name");
         }
     }
-}
+}();

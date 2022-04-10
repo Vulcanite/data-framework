@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Mumbai Hackathon</title>
+    <link rel="stylesheet" href="{% static 'testframework/css/styleh.css' %}">
+    <link rel="stylesheet" href="{% static 'testframework/css/stylehome.css' %}">
+  </head>
+  <body>
+    <a id="nav-expand" href="#"><span class="icon icon-menu"></span>&nbsp;Menu</a>
+      <nav>
+        <a id="nav-collapse" href="#">
+          <span class="icon icon-cross"></span>
+        </a>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'registration' %}">Registration</a>
+        <a href="#">Contact</a>
+      </nav>
+      <main>
+        <br>
+        <h3 style="color: white; font-weight: bold; text-align: center;">dvhf.js TESTING</h1>
+        <hr size="3" noshade>
+        <div class="container">
+          <br>
+          <br>
+          <form id="reg">
+            <!-- FName -->
+            <div class="form-item errorTag">
+              <label for="name" id="label-two" class="label-item">First Name<span class="requred">*</span>:</label>
+              <input id="fname" name="name" class="form-control" placeholder="Enter your First name">
+            </div>
+             <!-- LName -->
+             <div class="form-item errorTag">
+                <label for="name" id="label-two" class="label-item">Last Name<span class="requred">*</span>:</label>
+                <input type="text" id="lname" ame="name" class="form-control" placeholder="Enter your Last name">
+              </div>
+            <!-- Email -->
+            <div class="form-item errorTag">
+              <label for="email" id="label-three" class="label-item">E-mail<span class="requred">*</span>:</label>
+              <input id="emailAddress" name="email" class="form-control" placeholder="Enter your e-mail">
+            </div>
+
+            <div class="form-item errorTag">
+              <label for="username" id="label-three" class="label-item">Username<span class="requred">*</span>:</label>
+              <input id="username" name="email" class="form-control" placeholder="Enter your username">
+            </div>
+
+            <!-- Address -->
+            <div class="form-item">
+              <p class="label-item">Address* <span class="clue">(city, street, bld., apt.)</span></p>
+              <textarea id="address" name="address" class="input-textarea"
+                placeholder="Enter your address here"></textarea>
+            </div>
+            <!-- Pin code -->
+            <div class="form-item">
+                <p class="label-item">Pin code* </p>
+                <input type="text" name="pincode" class="form-control" placeholder="Enter your Pin code">
+             </div>
+            <!-- Age -->
+            <div class="form-item">
+              <label for="age" id="laberl-six" class="label-item">Age*</label>
+              <input type="text" id="age" name="age" class="form-control" placeholder="Enter your age">
+            </div>
+            
+            <!--Passwords-->
+            <div class="form-item errorTag">
+                <label for="password" id="laberl-six" class="label-item">Create Password*</label>
+                <input type="password" class="form-control" placeholder="Create Password" id="passwd">
+            </div>
+            <div class="form-item errorTag">
+                <label for="password" id="laberl-six" class="label-item">Confirm Password*</label>
+                <input type="password" class="form-control" placeholder="Confirm Password" id="cnfpasswd">
+            </div>
+            <!-- Department -->
+            <div class="form-item errorTag">
+                <p class="label-item">Select your Department:*</p>
+                <div id="radiobuttons"></div>
+            </div>
+            <!-- Domain-->
+            <div class="form-item">
+                <p class="label-item">
+                  Domain
+                  <span class="clue">(Check all that apply)</span>
+                </p>
+                <div id="checkboxes" class="errorTag"></div>
+              </div>
+            <!-- Project -->
+            <div class="form-item">
+                <label for="project" id="label-seven" class="label-item">Select a Project:</label>
+                <select name="project" id="projects" class="form-control"></select>
+              </div>
+             
+            
+            <!-- button -->
+            <div id="submit-explain">
+              <p>By submitting the form, I acknowledge that I have provided the correct information and if any information is found to be false I accept the resposibility completely.</p>
+            </div class="form-group">
+            <button type="button" onclick="javascript:Registration.addStudent();" class="btn btn-sm btn-primary btn-block">Add Student</button>
+          </form>
+    </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+    <script src="{% static 'testframework/js/handling.js' %}"></script>
+    <script src="{% static 'testframework/js/validations.js' %}"></script>
+    <script src="{% static 'testframework/js/registrations.js' %}"></script>
+    </body>
+    </html>
