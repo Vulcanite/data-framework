@@ -15,6 +15,7 @@ var Handler = function(){
             });
         },
 
+        //WORK IN PROGRESS
         send : function(type, url, data, element){
             $.ajax({
                 type: type,
@@ -31,9 +32,8 @@ var Handler = function(){
             });
 
         },
-        loadDropdown: function(element, data){
+        loadDropdown: function(element, data){//Dynamic Rendering of Dropdown Options
             var renderedList= '';
-            data = ["Password Cracker", "Lock System", "Facial Recognition"];
             for(let value in data){
                 renderedList += '<option value="'+data[value]+'">'+ data[value] +'</option>';
             }
@@ -54,16 +54,15 @@ var Handler = function(){
                 setTimeout(function(){ $("#notification .alert-" + type).hide(); }, timeout);
             }
         },
-        loadCheckbox: function(element, data){
+        loadCheckbox: function(element, data){//Dynamic Rendering of Checkboxes
             var checkoptions = '';
-            domain = ["ML", "DataScience", "AI", "Web Developement"]
             for(let value in data){
                 checkoptions += '<label><input name="domain" value="'+data[value]+'" type="checkbox" class="input-checkbox" />'+data[value]+'</label>'
             }
             $("#" + element).html("");
             $("#" + element).html(checkoptions);
         },
-        getCheckboxesValue: function(name, allowEmpty){
+        getCheckboxesValue: function(name, allowEmpty){//Provide Name of the Checkboxes
             list = [];
             $("input:checkbox[name="+name+"]:checked").each(function(){
                 list.push($(this).val());
@@ -76,11 +75,11 @@ var Handler = function(){
             }
             return list;
         },
-        getRadioValue:function(name){
+        getRadioValue:function(name){//Provide Name of the radio buttons
             var data = $('input[name='+name+']:checked').val();
             return data;
         },
-        loadRadioButtons : function(element, data){
+        loadRadioButtons : function(element, data){//Dynamic Rendering of Radio Buttons
             var radioOptions = '';
             for(let value in data){
                 radioOptions += '<label class="radio-label"><input type="radio" name="courses" class="input-radio"value="'+data[value]+'">'+data[value]+'</label>'
