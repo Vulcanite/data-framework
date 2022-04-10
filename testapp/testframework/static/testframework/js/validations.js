@@ -179,7 +179,7 @@ var Validations = function(){
                 if (list.indexOf(data[i]) != -1) {
                     throw {
                         source : element,
-                        message : "Already exists"
+                        message : "Already exists!!"
                     }
                 }
             }

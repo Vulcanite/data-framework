@@ -21,6 +21,9 @@ var Registration = function () {
             }catch(e){
                 console.log(e.message);
                 Handler.showInputError(e.source, e.message);
+                //If an error is caught, then the message gets displayed below the input box! we have added a 'errorTag' to the 
+                //class of the div surrounding the input, so whenever an error is caught for a particular validation
+                //it shows exactly below the input box, which failed the validation
             }
         }
     }
